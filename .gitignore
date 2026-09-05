@@ -1,0 +1,12 @@
+# Xcode user settings
+xcuserdata/
+
+# Build artifacts
+build/
+DerivedData/
+
+# macOS system files
+.DS_Store
+
+# Swift Package Manager
+.build/cat .gitignore
