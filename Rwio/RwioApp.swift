@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct RwioApp: App {
@@ -13,5 +14,6 @@ struct RwioApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Word.self)
     }
 }
