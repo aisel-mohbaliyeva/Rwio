@@ -1,0 +1,35 @@
+//
+//  WordListView.swift
+//  Rwio
+//
+//  Created by Aysel Mohbaliyeva on 07.09.26.
+//
+
+import SwiftUI
+import SwiftData
+
+struct WordListView: View {
+    @Environment(\.modelContext) private var context
+    @Query var words: [Word]
+    
+    var body: some View {
+        List {
+            ForEach(words) { word in
+                HStack {
+                    Text(word.englishText)
+                    Text(" - ")
+                    Text(word.azerbaijaniText)
+                }
+        }
+            .onDelete { indexSet in
+                for index in indexSet {
+                    context.delete(words[index])
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    WordListView()
+}
