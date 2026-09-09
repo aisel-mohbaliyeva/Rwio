@@ -12,7 +12,7 @@ import SwiftData
 struct RwioApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
         .modelContainer(for: Word.self)
     }
