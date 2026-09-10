@@ -18,12 +18,14 @@ struct DrawView: View {
     
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             if let word = currentWord {
                 if showEnglish {
                     Text(word.englishText)
+                        .font(.largeTitle)
                 } else {
                     Text(word.azerbaijaniText)
+                        .font(.largeTitle)
                 }
                 Button("Flip Card") {
                     showEnglish.toggle()
@@ -58,6 +60,8 @@ struct DrawView: View {
             }
             .disabled(words.isEmpty)
         }
+        .padding()
+        .navigationTitle("Draw Card")
     }
 }
 

@@ -29,6 +29,7 @@ struct AddWordView: View {
             .disabled(englishText.isEmpty || azerbaijaniText.isEmpty)
         }
         .padding()
+        .navigationTitle("Add Word")
     }
 }
 

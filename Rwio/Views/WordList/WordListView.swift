@@ -27,6 +27,7 @@ struct WordListView: View {
                 }
             }
         }
+        .navigationTitle("My Words")
     }
 }
 
