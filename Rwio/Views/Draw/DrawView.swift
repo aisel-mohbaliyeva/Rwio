@@ -32,7 +32,9 @@ struct DrawView: View {
                 if showAnswer {
                     HStack {
                         Button("I Knew") {
-                            word.weight -= 1
+                            if word.weight > 1 {
+                                word.weight -= 1
+                            }
                         }
                         Button("I Didn't Know") {
                             word.weight += 1
