@@ -35,10 +35,17 @@ struct DrawView: View {
                             if word.weight > 1 {
                                 word.weight -= 1
                             }
+                            currentWord = WordPickerService.pickRandomWord(from: words)
+                            showEnglish = true
+                            showAnswer = false
                         }
                         Button("I Didn't Know") {
                             word.weight += 1
+                            currentWord = WordPickerService.pickRandomWord(from: words)
+                            showEnglish = true
+                            showAnswer = false
                         }
+                        
                     }
                 }
             } else {
