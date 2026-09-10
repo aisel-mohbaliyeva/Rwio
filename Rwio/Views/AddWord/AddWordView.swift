@@ -16,17 +16,20 @@ struct AddWordView: View {
     var body: some View {
         VStack {
             HStack(spacing: 12) {
-                TextField("EN", text:$englishText) .textFieldStyle(.roundedBorder)
-                TextField("AZ", text: $azerbaijaniText) .textFieldStyle(.roundedBorder)
+                TextField("EN", text: $englishText)
+                    .textFieldStyle(.roundedBorder)
+                TextField("AZ", text: $azerbaijaniText)
+                    .textFieldStyle(.roundedBorder)
             }
             Button("Save") {
-            let newWord =
-                Word(englishText: englishText, azerbaijaniText: azerbaijaniText)
+                let newWord = Word(
+                    englishText: englishText.trimmingCharacters(in: .whitespaces), azerbaijaniText: azerbaijaniText.trimmingCharacters(in: .whitespaces)
+                    )
                 context.insert(newWord)
                 englishText = ""
                 azerbaijaniText = ""
             }
-            .disabled(englishText.isEmpty || azerbaijaniText.isEmpty)
+            .disabled(englishText.trimmingCharacters(in: .whitespaces).isEmpty || azerbaijaniText.trimmingCharacters(in: .whitespaces).isEmpty)
         }
         .padding()
         .navigationTitle("Add Word")
