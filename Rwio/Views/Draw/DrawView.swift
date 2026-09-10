@@ -49,6 +49,7 @@ struct DrawView: View {
                 showEnglish = true
                 showAnswer = false
             }
+            .disabled(words.isEmpty)
         }
     }
 }
