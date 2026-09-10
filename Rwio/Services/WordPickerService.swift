@@ -13,7 +13,7 @@ struct WordPickerService {
             return nil
         }
         let totalWeight = words.reduce(0) { $0 + $1.weight }
-    var randomValue = Int.random(in: 0..<totalWeight)
+        var randomValue = Int.random(in: 0..<totalWeight)
         for word in words {
             randomValue -= word.weight
             if randomValue < 0 {

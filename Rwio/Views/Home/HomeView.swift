@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack(spacing: 20) {
                 NavigationLink("Draw Card") {
                     DrawView()
