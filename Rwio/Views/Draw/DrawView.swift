@@ -33,7 +33,7 @@ struct DrawView: View {
                 }
                 if showAnswer {
                     HStack {
-                        Button("I Knew") {
+                        Button("Know") {
                             if word.weight > 1 {
                                 word.weight -= 1
                             }
@@ -41,13 +41,16 @@ struct DrawView: View {
                             showEnglish = true
                             showAnswer = false
                         }
-                        Button("I Didn't Know") {
+                        .buttonStyle(.bordered)
+                        .tint(.green)
+                        Button("Don't Know") {
                             word.weight += 1
                             currentWord = WordPickerService.pickRandomWord(from: words)
                             showEnglish = true
                             showAnswer = false
                         }
-                        
+                        .buttonStyle(.bordered)
+                        .tint(.red)
                     }
                 }
             } else {
