@@ -14,6 +14,8 @@ struct AddWordView: View {
     @State private var azerbaijaniText = ""
     @FocusState private var isFocused: Bool
     @State private var showSaved = false
+    @State private var showDuplicate = false
+    @Query var words: [Word]
     
     var body: some View {
         VStack {
@@ -21,13 +23,23 @@ struct AddWordView: View {
                 TextField("EN", text: $englishText)
                     .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
-                TextField("AZ", text: $azerbaijaniText)
+                TextField("Translation", text: $azerbaijaniText)
                     .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
             }
-            Button(showSaved ? "Saved" : "Save") {
+            Button(showDuplicate ? "Already exists!" : (showSaved ? "Saved!" : "Save")) {
+                let trimmedEnglish = englishText.trimmingCharacters(in: .whitespaces)
+                let trimmedAzerbaijani = azerbaijaniText.trimmingCharacters(in: .whitespaces)
+
+                if words.contains(where: { $0.englishText == trimmedEnglish }) {
+                    showDuplicate = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        showDuplicate = false
+                    }
+                    return
+                }
                 let newWord = Word(
-                    englishText: englishText.trimmingCharacters(in: .whitespaces), azerbaijaniText: azerbaijaniText.trimmingCharacters(in: .whitespaces)
+                    englishText: trimmedEnglish, azerbaijaniText: trimmedAzerbaijani
                     )
                 context.insert(newWord)
                 englishText = ""
