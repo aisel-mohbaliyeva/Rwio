@@ -12,13 +12,16 @@ struct AddWordView: View {
     @Environment(\.modelContext) private var context
     @State private var englishText = ""
     @State private var azerbaijaniText = ""
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         VStack {
             HStack(spacing: 12) {
                 TextField("EN", text: $englishText)
+                    .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
                 TextField("AZ", text: $azerbaijaniText)
+                    .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
             }
             Button("Save") {
@@ -28,6 +31,7 @@ struct AddWordView: View {
                 context.insert(newWord)
                 englishText = ""
                 azerbaijaniText = ""
+                isFocused = false
             }
             .disabled(englishText.trimmingCharacters(in: .whitespaces).isEmpty || azerbaijaniText.trimmingCharacters(in: .whitespaces).isEmpty)
         }
