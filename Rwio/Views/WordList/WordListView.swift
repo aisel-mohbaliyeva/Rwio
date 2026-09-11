@@ -22,7 +22,7 @@ struct WordListView: View {
                         HStack {
                             Text(word.englishText)
                             Text(" - ")
-                            Text(word.azerbaijaniText)
+                            Text(word.translationText)
                         }
                     }
                     .onDelete { indexSet in

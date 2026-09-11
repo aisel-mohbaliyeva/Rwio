@@ -10,12 +10,12 @@ import SwiftData
 @Model
 class Word {
     var englishText: String
-    var azerbaijaniText: String
+    var translationText: String
     var weight: Int
     
-    init(englishText: String, azerbaijaniText: String) {
+    init(englishText: String, translationText: String) {
         self.englishText = englishText
-        self.azerbaijaniText = azerbaijaniText
+        self.translationText = translationText
         self.weight = 5
     }
 }

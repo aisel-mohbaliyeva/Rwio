@@ -24,7 +24,7 @@ struct DrawView: View {
                     Text(word.englishText)
                         .font(.largeTitle)
                 } else {
-                    Text(word.azerbaijaniText)
+                    Text(word.translationText)
                         .font(.largeTitle)
                 }
                 Button("Flip Card") {
