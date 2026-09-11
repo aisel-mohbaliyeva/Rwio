@@ -13,6 +13,7 @@ struct AddWordView: View {
     @State private var englishText = ""
     @State private var azerbaijaniText = ""
     @FocusState private var isFocused: Bool
+    @State private var showSaved = false
     
     var body: some View {
         VStack {
@@ -24,7 +25,7 @@ struct AddWordView: View {
                     .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
             }
-            Button("Save") {
+            Button(showSaved ? "Saved" : "Save") {
                 let newWord = Word(
                     englishText: englishText.trimmingCharacters(in: .whitespaces), azerbaijaniText: azerbaijaniText.trimmingCharacters(in: .whitespaces)
                     )
@@ -32,6 +33,10 @@ struct AddWordView: View {
                 englishText = ""
                 azerbaijaniText = ""
                 isFocused = false
+                showSaved = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    showSaved = false
+                }
             }
             .disabled(englishText.trimmingCharacters(in: .whitespaces).isEmpty || azerbaijaniText.trimmingCharacters(in: .whitespaces).isEmpty)
         }
