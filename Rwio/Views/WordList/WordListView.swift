@@ -13,17 +13,23 @@ struct WordListView: View {
     @Query var words: [Word]
     
     var body: some View {
-        List {
-            ForEach(words) { word in
-                HStack {
-                    Text(word.englishText)
-                    Text(" - ")
-                    Text(word.azerbaijaniText)
-                }
-        }
-            .onDelete { indexSet in
-                for index in indexSet {
-                    context.delete(words[index])
+        Group {
+            if words.isEmpty{
+                Text("No words yet. Add your first word!")
+            } else {
+                List {
+                    ForEach(words) { word in
+                        HStack {
+                            Text(word.englishText)
+                            Text(" - ")
+                            Text(word.azerbaijaniText)
+                        }
+                    }
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            context.delete(words[index])
+                        }
+                    }
                 }
             }
         }
