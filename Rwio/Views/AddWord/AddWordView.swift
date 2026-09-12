@@ -11,7 +11,7 @@ import SwiftData
 struct AddWordView: View {
     @Environment(\.modelContext) private var context
     @State private var englishText = ""
-    @State private var translation​Text = ""
+    @State private var translationText = ""
     @FocusState private var isFocused: Bool
     @State private var showSaved = false
     @State private var showDuplicate = false
@@ -23,13 +23,13 @@ struct AddWordView: View {
                 TextField("EN", text: $englishText)
                     .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
-                TextField("Translation", text: $translation​Text)
+                TextField("Translation", text: $translationText)
                     .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
             }
             Button(showDuplicate ? "Already exists!" : (showSaved ? "Saved!" : "Save")) {
                 let trimmedEnglish = englishText.trimmingCharacters(in: .whitespaces)
-                let trimmed​Translation = translation​Text.trimmingCharacters(in: .whitespaces)
+                let trimmedTranslation = translationText.trimmingCharacters(in: .whitespaces)
 
                 if words.contains(where: { $0.englishText.lowercased() == trimmedEnglish.lowercased() }) {
                     showDuplicate = true
@@ -39,18 +39,18 @@ struct AddWordView: View {
                     return
                 }
                 let newWord = Word(
-                    englishText: trimmedEnglish, translationText: trimmed​Translation
+                    englishText: trimmedEnglish, translationText: trimmedTranslation
                 )
                 context.insert(newWord)
                 englishText = ""
-                translation​Text = ""
+                translationText = ""
                 isFocused = false
                 showSaved = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showSaved = false
                 }
             }
-            .disabled(englishText.trimmingCharacters(in: .whitespaces).isEmpty || translation​Text.trimmingCharacters(in: .whitespaces).isEmpty)
+            .disabled(englishText.trimmingCharacters(in: .whitespaces).isEmpty || translationText.trimmingCharacters(in: .whitespaces).isEmpty)
         }
         .padding()
         .navigationTitle("Add Word")

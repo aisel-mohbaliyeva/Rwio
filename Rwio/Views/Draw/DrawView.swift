@@ -20,7 +20,6 @@ struct DrawView: View {
     var body: some View {
         VStack(spacing: 20) {
             if let word = currentWord {
-        
                     if showEnglish {
                         Text(word.englishText)
                             .font(.largeTitle)
