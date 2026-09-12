@@ -20,39 +20,40 @@ struct DrawView: View {
     var body: some View {
         VStack(spacing: 20) {
             if let word = currentWord {
-                if showEnglish {
-                    Text(word.englishText)
-                        .font(.largeTitle)
-                } else {
-                    Text(word.translationText)
-                        .font(.largeTitle)
-                }
-                Button("Flip Card") {
-                    showEnglish.toggle()
-                    showAnswer = true
-                }
-                if showAnswer {
-                    HStack {
-                        Button("Know") {
-                            if word.weight > 1 {
-                                word.weight -= 1
-                            }
-                            currentWord = WordPickerService.pickRandomWord(from: words)
-                            showEnglish = true
-                            showAnswer = false
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(.green)
-                        Button("Don't Know") {
-                            word.weight += 1
-                            currentWord = WordPickerService.pickRandomWord(from: words)
-                            showEnglish = true
-                            showAnswer = false
-                        }
-                        .buttonStyle(.bordered)
-                        .tint(.red)
+        
+                    if showEnglish {
+                        Text(word.englishText)
+                            .font(.largeTitle)
+                    } else {
+                        Text(word.translationText)
+                            .font(.largeTitle)
                     }
-                }
+                    Button("Flip Card") {
+                        showEnglish.toggle()
+                        showAnswer = true
+                    }
+                    if showAnswer {
+                        HStack {
+                            Button("Know") {
+                                if word.weight > 1 {
+                                    word.weight -= 1
+                                }
+                                currentWord = WordPickerService.pickRandomWord(from: words)
+                                showEnglish = true
+                                showAnswer = false
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(.green)
+                            Button("Don't Know") {
+                                word.weight += 1
+                                currentWord = WordPickerService.pickRandomWord(from: words)
+                                showEnglish = true
+                                showAnswer = false
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(.red)
+                        }
+                    }
             } else {
                 Text("Tap the button to draw a card")
             }
@@ -65,6 +66,13 @@ struct DrawView: View {
         }
         .padding()
         .navigationTitle("Draw Card")
+        .onChange(of: words) {
+            if let word = currentWord, !words.contains(word) {
+                currentWord = nil
+                showEnglish = true
+                showAnswer = false
+            }
+        }
     }
 }
 
