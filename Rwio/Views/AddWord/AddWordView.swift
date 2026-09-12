@@ -31,7 +31,7 @@ struct AddWordView: View {
                 let trimmedEnglish = englishText.trimmingCharacters(in: .whitespaces)
                 let trimmed​Translation = translation​Text.trimmingCharacters(in: .whitespaces)
 
-                if words.contains(where: { $0.englishText == trimmedEnglish }) {
+                if words.contains(where: { $0.englishText.lowercased() == trimmedEnglish.lowercased() }) {
                     showDuplicate = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         showDuplicate = false
