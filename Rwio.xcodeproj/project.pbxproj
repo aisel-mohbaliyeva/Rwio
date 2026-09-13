@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		BF368CE53055DDA000FCC4E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF3CDB003048578500E6BA4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF3CDB073048578500E6BA4E;
+			remoteInfo = Rwio;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BF368CE13055DD9F00FCC4E4 /* RwioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RwioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3CDB083048578500E6BA4E /* Rwio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rwio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		BF368CE23055DD9F00FCC4E4 /* RwioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RwioTests;
+			sourceTree = "<group>";
+		};
 		BF3CDB0A3048578500E6BA4E /* Rwio */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Rwio;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF368CDE3055DD9F00FCC4E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF3CDB053048578500E6BA4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3CDB0A3048578500E6BA4E /* Rwio */,
+				BF368CE23055DD9F00FCC4E4 /* RwioTests */,
 				BF3CDB093048578500E6BA4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3CDB083048578500E6BA4E /* Rwio.app */,
+				BF368CE13055DD9F00FCC4E4 /* RwioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF368CE03055DD9F00FCC4E4 /* RwioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF368CE93055DDA000FCC4E4 /* Build configuration list for PBXNativeTarget "RwioTests" */;
+			buildPhases = (
+				BF368CDD3055DD9F00FCC4E4 /* Sources */,
+				BF368CDE3055DD9F00FCC4E4 /* Frameworks */,
+				BF368CDF3055DD9F00FCC4E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF368CE63055DDA000FCC4E4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BF368CE23055DD9F00FCC4E4 /* RwioTests */,
+			);
+			name = RwioTests;
+			packageProductDependencies = (
+			);
+			productName = RwioTests;
+			productReference = BF368CE13055DD9F00FCC4E4 /* RwioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BF3CDB073048578500E6BA4E /* Rwio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF3CDB133048578600E6BA4E /* Build configuration list for PBXNativeTarget "Rwio" */;
@@ -80,6 +128,10 @@
 				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
+					BF368CE03055DD9F00FCC4E4 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = BF3CDB073048578500E6BA4E;
+					};
 					BF3CDB073048578500E6BA4E = {
 						CreatedOnToolsVersion = 26.4;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				BF3CDB073048578500E6BA4E /* Rwio */,
+				BF368CE03055DD9F00FCC4E4 /* RwioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF368CDF3055DD9F00FCC4E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF3CDB063048578500E6BA4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF368CDD3055DD9F00FCC4E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF3CDB043048578500E6BA4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BF368CE63055DDA000FCC4E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF3CDB073048578500E6BA4E /* Rwio */;
+			targetProxy = BF368CE53055DDA000FCC4E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BF368CE73055DDA000FCC4E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TN7G635M5B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aysel.RwioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rwio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rwio";
+			};
+			name = Debug;
+		};
+		BF368CE83055DDA000FCC4E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TN7G635M5B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aysel.RwioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rwio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rwio";
+			};
+			name = Release;
+		};
 		BF3CDB113048578600E6BA4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -321,6 +438,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF368CE93055DDA000FCC4E4 /* Build configuration list for PBXNativeTarget "RwioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF368CE73055DDA000FCC4E4 /* Debug */,
+				BF368CE83055DDA000FCC4E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BF3CDB033048578500E6BA4E /* Build configuration list for PBXProject "Rwio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
